@@ -124,12 +124,16 @@ public class SubHunter extends Activity {
         paint.setColor(Color.argb(255, 0, 0, 0));
 
         // Draw the vertical lines of the grid
-        canvas.drawLine(blockSize * 1, 0, blockSize * 1, numberVerticalPixels - 1,
-                paint);
+        for(int i = 0; i < gridWidth; i++) {
+            canvas.drawLine(blockSize * i, 0, blockSize * i,
+                    numberVerticalPixels, paint);
+        }
 
         // Draw the horizontal lines of the grid
-        canvas.drawLine(0, blockSize * 1, numberHorizontalPixels - 1,blockSize * 1,
-                paint);
+        for(int i = 0; i < gridHeight; i++) {
+            canvas.drawLine(0, blockSize * i, numberHorizontalPixels,
+                    blockSize * i, paint);
+        }
 
         // Re-size the text appropriate for the score and distance text
         paint.setTextSize(blockSize * 2);
